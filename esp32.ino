@@ -193,7 +193,11 @@ void setup() {
 
   connectToWiFi();
 
+  // Begin AI Assisted Code
+  // Google Gemini 3.1 Pro
+
   dataMutex = xSemaphoreCreateMutex();
+ 
 
   xTaskCreatePinnedToCore(
     httpTask,
@@ -204,6 +208,8 @@ void setup() {
     NULL,
     0
   );
+
+  // End AI Assisted Code
 }
 
 void loop() {
@@ -288,6 +294,8 @@ void loop() {
   }
 // End AI Generated Code
 
+// When D32 Pressed
+
   if (button_isr_flag) {
     button_isr_flag = false;
     Serial.println("\nD32 BUTTON \u2014 server cycle / back");
@@ -368,10 +376,6 @@ void loop() {
     updateAlertScroll();
   }
 }
-// End AI Generated Code
-
-// Begin AI Generated Code
-// Google Gemini 3.1 Pro
 
 // --- Wi-Fi & Network Utilities --- 
 void connectToWiFi() {
@@ -642,7 +646,6 @@ void printCompactBar(char label, float value) {
   lcd.print(buf);
 }
 
-// End AI Generated Code
 
 
 void printNetRate(float kbps) {
@@ -685,6 +688,9 @@ void showAlertScreen(int alertIdx) {
   }
 }
 
+
+// End AI Generated Code
+
 void cycleLcdScreen() {
   if (alert_scrolling_active) return;
 
@@ -722,6 +728,9 @@ void cycleLcdScreen() {
     }
   }
 
+  // Begin AI Generated Code
+  // Google Gemini 3.1 Pro
+  
   int server_screens = serverCount * 2;
 
   if (server_screens == 0) {
@@ -755,8 +764,6 @@ void cycleLcdScreen() {
     return;
   }
 
-// Begin AI Generated Code
-// Google Gemini 3.1 Pro
 
   lcd.setCursor(0, 1);
 
